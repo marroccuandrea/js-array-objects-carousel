@@ -66,16 +66,25 @@ thumbAll[0].classList.add('active');
 
 // Funzioni per il carosello
 next.addEventListener('click', function(){
+    clickNext();
+})
+prev.addEventListener('click', function () {
+    clickPrev();
+})
+
+// Funzioni
+function clickNext(){
     allImages[counterImg].classList.remove('active');
     thumbAll[counterImg].classList.remove('active');
     counterImg++;
-    if (counterImg >= images.length) {
+    if (counterImg === images.length) {
         counterImg=0;
     }
     allImages[counterImg].classList.add('active');
     thumbAll[counterImg].classList.add('active');
-})
-prev.addEventListener('click', function () {
+}
+
+function clickPrev(){
     allImages[counterImg].classList.remove('active');
     thumbAll[counterImg].classList.remove('active');
     counterImg--;
@@ -84,4 +93,22 @@ prev.addEventListener('click', function () {
     }
     allImages[counterImg].classList.add('active');
     thumbAll[counterImg].classList.add('active');
-})
+}
+
+
+
+// Scroll delle immagini ogni 3 secondi
+
+startScrolling();
+function startScrolling() {
+    // Call clickUp function ogni 3 secondi
+    interval = setInterval(clickNext, 3000);
+}
+// 3.
+function stopScrolling(){
+    clearInterval(interval);
+}
+// Si ferma lo scroll quado passo sopra all'immagine
+imageWrapper.addEventListener( 'mouseover', stopScrolling );
+// Riprende lo scroll quando  si esce dall'immagine
+imageWrapper.addEventListener( 'mouseout',  startScrolling );
