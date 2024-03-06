@@ -95,8 +95,8 @@ function clickPrev(){
     thumbAll[counterImg].classList.add('active');
 }
 
-
-
+// Prendo il contenitore delle immagini e delle thumbnails per la funzione autoplay
+const imgContainer = document.querySelector('.my-carousel-container');
 // Scroll delle immagini ogni 3 secondi
 
 startScrolling();
@@ -109,6 +109,6 @@ function stopScrolling(){
     clearInterval(interval);
 }
 // Si ferma lo scroll quado passo sopra all'immagine
-imageWrapper.addEventListener( 'mouseover', stopScrolling );
+imgContainer.addEventListener( 'mouseover', stopScrolling );
 // Riprende lo scroll quando  si esce dall'immagine
-imageWrapper.addEventListener( 'mouseout',  startScrolling );
+imgContainer.addEventListener( 'mouseout',  startScrolling );
