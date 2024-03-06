@@ -3,6 +3,7 @@ const imageWrapper = document.querySelector('.my-carousel-images');
 const prev = document.querySelector('.my-previous');
 const next = document.querySelector('.my-next');
 const imgList = document.querySelector('.my-thumbnails');
+const allImages = document.querySelectorAll('.my-carousel-item');
 
 //Contatore
 let counterImg = 0;
@@ -38,3 +39,14 @@ const images = [
     },
 ];
 
+images.forEach(img => {
+imageWrapper.innerHTML += `
+    <div class="my-carousel-item">
+        <img class="img-fluid" src="${img.url}" alt="">
+        <div class="item-description px-3">
+            <h2>${img.title}</h2>
+            <p>${img.description}</p>
+        </div>
+    </div>
+`
+})
