@@ -7,6 +7,7 @@ div.my-carousel-container{
     min-width: 800px ;
     max-width: 1350px;
     margin: 0 auto;
+    position: relative;
     /* background-color: aquamarine; */
 }
 
@@ -30,17 +31,18 @@ div.my-next{
     padding: 5px;
     background-color: rgba(255, 255, 255, .5);
     z-index: 1;
-    top: 64%;
+    top: 85%;
     transform: translateY(-50%);
     cursor: pointer;
+    position: absolute;
 }
 
 div.my-previous{
-    left: 12%;
+    left: 60px;
 }
 
 div.my-next{
-    right: 12%;
+    right: 60px;
 }
 
 div.my-previous > span::after{
