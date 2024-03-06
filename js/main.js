@@ -1,3 +1,13 @@
+// Costanti
+const imageWrapper = document.querySelector('.my-carousel-images');
+const prev = document.querySelector('.my-previous');
+const next = document.querySelector('.my-next');
+const imgList = document.querySelector('.my-thumbnails');
+
+//Contatore
+let counterImg = 0;
+
+
 const images = [
     {
         url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
