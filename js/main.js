@@ -38,8 +38,8 @@ const images = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
 ];
-
-images.forEach(img => {
+// Porto in pagina le immagini dell'array
+images.forEach(img =>{
 imageWrapper.innerHTML += `
     <div class="my-carousel-item">
         <img class="img-fluid" src="${img.url}" alt="">
@@ -49,4 +49,12 @@ imageWrapper.innerHTML += `
         </div>
     </div>
 `
+})
+// Porto in pagina come miniatura le immagini dell'array
+images.forEach(img =>{
+    imageWrapper.innerHTML += `
+    <div class="my-thumbnail">
+                <img class="img-fluid" src="${img.url}" alt="">
+    </div>
+    `
 })
