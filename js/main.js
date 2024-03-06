@@ -1,12 +1,8 @@
 // Costanti
 const imageWrapper = document.querySelector('.my-carousel-images');
+const imageList = document.querySelector('.my-thumbnails');
 const prev = document.querySelector('.my-previous');
 const next = document.querySelector('.my-next');
-const imgList = document.querySelector('.my-thumbnails');
-const allImages = document.querySelectorAll('.my-carousel-item');
-
-//Contatore
-let counterImg = 0;
 
 
 const images = [
@@ -41,20 +37,51 @@ const images = [
 // Porto in pagina le immagini dell'array
 images.forEach(img =>{
 imageWrapper.innerHTML += `
-    <div class="my-carousel-item">
-        <img class="img-fluid" src="${img.url}" alt="">
-        <div class="item-description px-3">
-            <h2>${img.title}</h2>
-            <p>${img.description}</p>
-        </div>
+<div class="my-carousel-item">
+    <img class="img-fluid" src="${img.url}" alt="">
+    <div class="item-description px-3">
+        <h2>${img.title}</h2>
+        <p>${img.description}</p>
     </div>
+</div>
 `
 })
 // Porto in pagina come miniatura le immagini dell'array
 images.forEach(img =>{
-    imageWrapper.innerHTML += `
-    <div class="my-thumbnail">
-                <img class="img-fluid" src="${img.url}" alt="">
-    </div>
-    `
+imageList.innerHTML += `
+<div class="my-thumbnail">
+    <img class="img-fluid" src="${img.url}" alt="">
+</div>
+`
+})
+
+//Contatore
+let counterImg = 0;
+
+const allImages = document.querySelectorAll('.my-carousel-item');
+allImages[0].classList.add('active');
+
+const thumbAll = document.querySelectorAll('.my-thumbnail');
+thumbAll[0].classList.add('active');
+
+// Funzioni per il carosello
+next.addEventListener('click', function(){
+    allImages[counterImg].classList.remove('active');
+    thumbAll[counterImg].classList.remove('active');
+    counterImg++;
+    if (counterImg >= images.length) {
+        counterImg=0;
+    }
+    allImages[counterImg].classList.add('active');
+    thumbAll[counterImg].classList.add('active');
+})
+prev.addEventListener('click', function () {
+    allImages[counterImg].classList.remove('active');
+    thumbAll[counterImg].classList.remove('active');
+    counterImg--;
+    if(counterImg < 0){
+        counterImg = allImages.length - 1;
+    }
+    allImages[counterImg].classList.add('active');
+    thumbAll[counterImg].classList.add('active');
 })
